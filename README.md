@@ -1,1 +1,1 @@
-[![Build Status](https://app.travis-ci.com/codecat06/myHwApp.svg?token=MNZ2qHkX3S9jDr3y7zHV&branch=main)](https://app.travis-ci.com/codecat06/myHwApp)
+[![Build Status](https://app.travis-ci.com/codecat06/myHwApp.svg?token=MNZ2qHkX3S9jDr3y7zHV&branch=master)](https://app.travis-ci.com/codecat06/myHwApp)
