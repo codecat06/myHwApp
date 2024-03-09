@@ -18,25 +18,26 @@ import spark.template.mustache.MustacheTemplateEngine;
  */
 public class App 
 {
-    public static int performComputation(ArrayList<Integer> list1,ArrayList<Integer> array2, String param3, int param4) {
+    public static String performComputation(ArrayList<Integer> indicesOfStringsToDelete,ArrayList<Integer> intsToConcat, String original, String append) {
         // Perform a meaningful computation on the parameters
-        int result = 0;
+        String concatenatedString = original.concat(append);
 
-        for (Integer num : list1) {
-            result += num;
+        // Delete specified indices
+        StringBuilder modifiedString = new StringBuilder(concatenatedString);
+        for (int i : indicesOfStringsToDelete) {
+            if (i >= 0 && i < modifiedString.length()) {
+                modifiedString.deleteCharAt(i);
+            }
+            else 
+                return "Wrong input for Box1";
         }
 
-        for (Integer num : array2) {
-            result -= num;
+        // Concatenate additional strings
+        for (Integer val : intsToConcat) {
+            modifiedString.append(val);
         }
 
-        result *= param4;
-
-        if (param3.equals("multiply")) {
-            result *= 2;
-        }
-
-        return result;
+        return modifiedString.toString();
     }
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
@@ -45,7 +46,7 @@ public class App
             // Parse input1 as a list of integers
             String input1 = req.queryParams("input1");
             java.util.Scanner sc1 = new java.util.Scanner(input1);
-            sc1.useDelimiter("[;\r]+");
+            sc1.useDelimiter("[;\r\n]+");
             java.util.ArrayList<Integer> inputList1 = new java.util.ArrayList<>();
             while (sc1.hasNext()) {
                 int value = Integer.parseInt(sc1.next().replaceAll("\\s", ""));
@@ -66,10 +67,11 @@ public class App
             String input3 = req.queryParams("input3");
         
             // Parse input4 as an integer
-            int input4 = Integer.parseInt(req.queryParams("input4").replaceAll("\\s", ""));
+            //int input4 = Integer.parseInt(req.queryParams("input4").replaceAll("\\s", ""));
+            String input4 = req.queryParams("input4");
         
             // Perform computation using the App.performComputation method
-            int result = App.performComputation(inputList1, inputList2, input3, input4);
+            String result = App.performComputation(inputList1, inputList2, input3, input4);
         
             // Prepare the result to be displayed in the template
             Map<String, Object> map = new HashMap<>();
