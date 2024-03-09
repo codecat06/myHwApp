@@ -18,9 +18,13 @@ public class AppTest
         list1.add(3);
         list1.add(5);
 
-        int[] array2 = {1, 2, 3};
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
 
-        assertFalse(App.performComputation(list1, array2, "add", 2)==15);
+
+        assertFalse(App.performComputation(list1, list2, "add", 2)==15);
     }
 
     public void testPerformComputation2() {
@@ -28,17 +32,23 @@ public class AppTest
         list1.add(3);
         list1.add(5);
 
-        int[] array2 = {1, 2, 3};
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
 
-        assertTrue(App.performComputation(list1, array2, "add", 2)==4);
+        assertTrue(App.performComputation(list1, list2, "add", 2)==4);
     }
 
     
     public void testPerformComputationWithEmptyList() {
         ArrayList<Integer> list1 = new ArrayList<>();
-        int[] array2 = {1, 2, 3};
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
 
-        assertTrue(App.performComputation(list1, array2, "add", 3)==-18);
+        assertTrue(App.performComputation(list1, list2, "add", 3)==-18);
     }
 
     
@@ -47,9 +57,12 @@ public class AppTest
         list1.add(3);
         list1.add(5);
 
-        int[] array2 = {1, 2, 3};
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
 
-        assertTrue(App.performComputation(list1, array2, "multiply", 3)==12);
+        assertTrue(App.performComputation(list1, list2, "multiply", 3)==12);
     }
 
     
@@ -58,9 +71,12 @@ public class AppTest
         list1.add(3);
         list1.add(5);
 
-        int[] array2 = {1, 2, 3};
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
 
-        assertTrue( App.performComputation(list1, array2, "add", 0)==0);
+        assertTrue( App.performComputation(list1, list2, "add", 0)==0);
     }
 
     
@@ -69,9 +85,12 @@ public class AppTest
         list1.add(-3);
         list1.add(5);
 
-        int[] array2 = {1, 2, 3};
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
 
-        assertTrue(App.performComputation(list1, array2, "add", 2)==-8);
+        assertTrue(App.performComputation(list1, list2, "add", 2)==-8);
     }
     /**
      * Create the test case
