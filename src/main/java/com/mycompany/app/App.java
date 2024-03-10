@@ -18,27 +18,34 @@ import spark.template.mustache.MustacheTemplateEngine;
  */
 public class App 
 {
-    public static String performComputation(ArrayList<Integer> indicesOfStringsToDelete,ArrayList<Integer> intsToConcat, String original, String append) {
+    public static String performComputation(ArrayList<Integer> indicesOfStringsToAppend,ArrayList<Integer> intsToConcat, String original, String append) {
         // Perform a meaningful computation on the parameters
         String concatenatedString = original.concat(append);
 
         // Delete specified indices
         StringBuilder modifiedString = new StringBuilder(concatenatedString);
-        for (int i : indicesOfStringsToDelete) {
-            if (i >= 0 && i < modifiedString.length()) {
-                modifiedString.deleteCharAt(i);
+        int length=modifiedString.length();
+        
+        for (int i : indicesOfStringsToAppend) {
+            if (i >= 0 && i < length) {
+                modifiedString.append(modifiedString.charAt(i));
+                
             }
             else 
                 return "Wrong input for Box1";
         }
+       
+    
 
         // Concatenate additional strings
+        
         for (Integer val : intsToConcat) {
             modifiedString.append(val);
         }
 
         return modifiedString.toString();
     }
+    
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 

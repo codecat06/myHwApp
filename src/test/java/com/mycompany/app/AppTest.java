@@ -15,71 +15,58 @@ public class AppTest
 
     public void testPerformComputation() {
         ArrayList<Integer> list1 = new ArrayList<>();
-        list1.add(3);
-        list1.add(5);
+        list1.add(0);
+        list1.add(1);
 
         ArrayList<Integer> list2 = new ArrayList<>();
         list2.add(1);
         list2.add(2);
         list2.add(3);
 
-
-        assertFalse(App.performComputation(list1, list2, "add", 2)==15);
+        assertEquals("hellohihe123", App.performComputation(list1, list2, "hello", "hi"));
     }
 
     public void testPerformComputation2() {
         ArrayList<Integer> list1 = new ArrayList<>();
-        list1.add(3);
-        list1.add(5);
+        list1.add(0);
+        list1.add(1);
 
         ArrayList<Integer> list2 = new ArrayList<>();
         list2.add(1);
         list2.add(2);
         list2.add(3);
 
-        assertTrue(App.performComputation(list1, list2, "add", 2)==4);
+        assertFalse("asada".equals(App.performComputation(list1, list2, "hello", "hi")));
     }
 
-    
     public void testPerformComputationWithEmptyList() {
         ArrayList<Integer> list1 = new ArrayList<>();
         ArrayList<Integer> list2 = new ArrayList<>();
-        list2.add(1);
-        list2.add(2);
-        list2.add(3);
 
-        assertTrue(App.performComputation(list1, list2, "add", 3)==-18);
+        assertEquals("hellohi", App.performComputation(list1, list2, "hello", "hi"));
     }
 
-    
-    public void testPerformComputationWithMultiply() {
+    public void testPerformComputationWithListOneEmpty() {
         ArrayList<Integer> list1 = new ArrayList<>();
-        list1.add(3);
-        list1.add(5);
 
         ArrayList<Integer> list2 = new ArrayList<>();
         list2.add(1);
         list2.add(2);
         list2.add(3);
 
-        assertTrue(App.performComputation(list1, list2, "multiply", 3)==12);
+        assertEquals("hellohi123", App.performComputation(list1, list2, "hello", "hi"));
     }
 
-    
-    public void testPerformComputationWithZeroParam4() {
+    public void testPerformComputationWithListTwoEmpty() {
         ArrayList<Integer> list1 = new ArrayList<>();
-        list1.add(3);
-        list1.add(5);
+        list1.add(0);
+        list1.add(1);
 
         ArrayList<Integer> list2 = new ArrayList<>();
-        list2.add(1);
-        list2.add(2);
-        list2.add(3);
 
-        assertTrue( App.performComputation(list1, list2, "add", 0)==0);
+        assertEquals("hellohihe", App.performComputation(list1, list2, "hello", "hi"));
     }
 
-    
     public void testPerformComputationWithNegativeNumbers() {
         ArrayList<Integer> list1 = new ArrayList<>();
         list1.add(-3);
@@ -90,7 +77,7 @@ public class AppTest
         list2.add(2);
         list2.add(3);
 
-        assertTrue(App.performComputation(list1, list2, "add", 2)==-8);
+        assertEquals("Wrong input for Box1", App.performComputation(list1, list2, "hello", "hi"));
     }
     /**
      * Create the test case
